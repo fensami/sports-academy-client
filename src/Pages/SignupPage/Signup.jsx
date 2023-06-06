@@ -22,25 +22,25 @@ const Signup = () => {
           <label className="label">
             <span>Name</span>
           </label>
-          <input {...register("name"), { required: true }} type="name" placeholder="Name" className="input input-bordered" />
+          <input {...register("name", { required: true})} type="name" placeholder="Name" className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
             <span>Photo Url</span>
           </label>
-          <input {...register("text")} type="text" placeholder="Photo Url" className="input input-bordered" />
+          <input {...register("text",  { required: true})} type="text" placeholder="Photo Url" className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
             <span>Email</span>
           </label>
-          <input {...register("email")} type="email" placeholder="Email" className="input input-bordered" />
+          <input {...register("email",  { required: true})} type="email" placeholder="Email" className="input input-bordered" />
         </div>
         <div className="form-control">
           <label className="label">
             <span >Password</span>
           </label>
-          <input {...register("password")} type="password" placeholder="password" className="input input-bordered" />
+          <input {...register("password",{ required: true})} type="password" placeholder="password" className="input input-bordered" />
           {/* <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label> */}
@@ -49,7 +49,7 @@ const Signup = () => {
           <label className="label">
             <span >Confirm Password</span>
           </label>
-          <input {...register("password")} type="password" placeholder="Confirm Password" className="input input-bordered" />
+          <input {...register("password", { required: true})} type="password" placeholder="Confirm Password" className="input input-bordered" />
           {/* <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label> */}
