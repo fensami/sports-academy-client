@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Signup = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const {createUser, updateUserProfile} = useContext(AuthContext)
+
+  
+  const onSubmit = data => {
+    createUser(data.email, data.password)
+    .then(result => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+
+      // updateUserProfile(data.name, data.photoURL)
+      // .then((result) => {
+      //   const url = result.user;
+      //   console.log(url);
+
+        // const saveUser = {name: data.name, }
+      // })
+      // .catch(err => console.log(err))
+    })
+    .catch(err => console.log(err))
+    // console.log(data)
+     
+  };
 
   return (
     <div className="hero min-h-screen bg-[#38ada9]">
@@ -71,11 +93,11 @@ const Signup = () => {
             </div>
 
 
-            <div className="form-control mt-6">
+            
               <input type="submit" className="hover:bg-[#78e08f] btn 
           font-extrabold bg-[#38ada9] text-slate-800" value="SignUp" />
               {/* <input type='submit' >Login</input> */}
-            </div>
+           
 
           </div>
 
