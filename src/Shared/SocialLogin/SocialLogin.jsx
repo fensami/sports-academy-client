@@ -13,6 +13,7 @@ const SocialLogin = () => {
   }
   return (
     <div onClick={handleGoogleSignIn}>
+      <hr className='pb-8' />
       <FcGoogle className='w-1/2 mx-auto mb-8' style={{fontSize: '3rem'}} ></FcGoogle>
     </div>
   );
