@@ -12,8 +12,10 @@ const Navbar = () => {
     .catch(err => console.log(err))
   }
   const nav = <>
-      <li><a>Item 1</a></li>
-      <li><a>Item 3</a></li>
+      <li><Link>Home</Link></li>
+      <li><Link>Instructors</Link></li>
+      <li><Link>Classes</Link></li>
+      {/* Home, Instructors, Classes */}
   </>
   return (
     <div >
@@ -37,7 +39,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
 
-        <ul className="menu menu-horizontal font-bold px-1">
+        <ul className="menu menu-horizontal font-bold text-xl px-1 text-white">
           {nav}
         </ul>
 
