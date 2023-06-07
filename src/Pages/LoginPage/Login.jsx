@@ -4,6 +4,7 @@ import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProvider';
+import image from '../../assets/image/loginImage.png'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -29,11 +30,11 @@ const Login = () => {
     <div className="hero min-h-screen bg-[#38ada9]">
   <div className="hero-content grid grid-cols-1 md:grid-cols-2">
 
-    <div className="text-center w-96 text-white lg:text-left">
-      <h1 className="text-5xl font-bold">Login now!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+    <div className="text-center  md:mr-12 text-white lg:text-left">
+      <img src={image} alt="" />
+     
     </div>
-    <form onSubmit={handleSubmit(onSubmit)}  className="card flex-shrink-0 w-96 shadow-2xl bg-base-100">
+    <form onSubmit={handleSubmit(onSubmit)}  className="card flex-shrink-0 md:w-96 shadow-2xl bg-base-100">
       <div className="card-body">
 
         <div className="form-control">
