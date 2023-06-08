@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "image": "https://img.freepik.com/premium-photo/basketball-strategy-team-sports-coach-talking-usa-sport-group-about-coaching-game-court-young-athlete-students-communication-about-idea-during-training-professional-competition_590464-86954.jpg?w=2000",
+    "name": "Basketball",
+    "students": 120
+  },
+  {
+    "id": 2,
+    "image": "https://media.gettyimages.com/id/501676602/photo/coach-giving-instruction-to-his-kids-soccer-team.jpg?s=612x612&w=gi&k=20&c=LP6ClbHS6BmEpGOz0TqVJA6wH9x619nawOcT3Q0ZwmA=",
+    "name": "Football",
+    "students": 150
+  },
+  {
+    "id": 3,
+    "image": "https://media.istockphoto.com/id/1421326043/photo/children-tennis-and-sport-with-a-group-of-friends-and-kids-on-a-sports-court-for-training.jpg?s=612x612&w=0&k=20&c=W85DQGevZ3NP4rYuIYBlg2wmnLqKo2zQ-k-RK-FBY7Q=",
+    "name": "Tennis",
+    "students": 50
+  },
+  {
+    "id": 4,
+    "image": "https://aquastarswim.com.au/app/uploads/2022/01/210414-Aquastar-80-Cropped.jpg",
+    "name": "Swimming",
+    "students": 80
+  },
+  {
+    "id": 5,
+    "image": "https://membersolutions.com/wp-content/uploads/2017/04/iStock_80106731_XXXLARGE-1.jpg",
+    "name": "Martial Arts",
+    "students": 40
+  },
+  {
+    "id": 6,
+    "image": "https://www.bkgymswim.com.au/wp-content/uploads/2019/10/KH_064_BKids_040819-1260x630.jpg",
+    "name": "Gymnastics",
+    "students": 70
+  }
+]

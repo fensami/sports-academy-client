@@ -1,19 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { AuthContext } from '../../Providers/AuthProvider';
 import image from '../../assets/image/loginImage.png'
+import { useAuth } from '../../Hooks/useAuth';
 
 const Login = () => {
   const navigate = useNavigate()
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
   
-  //TODO
+  
   const { register, handleSubmit } = useForm();
-  const {login} = useContext(AuthContext)
+  const {login} = useAuth()
   const onSubmit = data => {
     // console.log(data);
     login(data.email, data.password)

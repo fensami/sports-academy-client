@@ -1,14 +1,13 @@
-import React, { useContext } from 'react';
-
+import React from 'react';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { AuthContext } from '../../Providers/AuthProvider';
-import { updateProfile } from 'firebase/auth';
+
+import { useAuth } from '../../Hooks/useAuth';
 
 const Signup = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const {createUser, updateUserProfile} = useContext(AuthContext)
+  const {createUser, updateUserProfile} = useAuth()
 
   
   const onSubmit = data => {
@@ -38,7 +37,6 @@ const Signup = () => {
 
     })
     .catch(err => console.log(err))
-    // console.log(data)
      
   };
 
