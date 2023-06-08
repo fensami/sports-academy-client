@@ -12,8 +12,8 @@ const Navbar = () => {
     .catch(err => console.log(err))
   }
   const nav = <>
-      <li><Link>Home</Link></li>
-      <li><Link>Instructors</Link></li>
+      <li><Link to='/'>Home</Link></li>
+      <li><Link to='/instructors'>Instructors</Link></li>
       <li><Link>Classes</Link></li>
       {/* Home, Instructors, Classes */}
   </>

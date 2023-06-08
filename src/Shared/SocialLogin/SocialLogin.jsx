@@ -1,13 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { AuthContext } from '../../Providers/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
-
-
-
+import { useAuth } from '../../Hooks/useAuth';
 
 const SocialLogin = () => {
-  const {googleSignIn} = useContext(AuthContext);
+  const {googleSignIn} = useAuth();
   const navigate = useNavigate()
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
@@ -31,6 +28,7 @@ const SocialLogin = () => {
 
     })
     navigate(from , {replace: true})
+    
   }
   return (
     <div onClick={handleGoogleSignIn}>
