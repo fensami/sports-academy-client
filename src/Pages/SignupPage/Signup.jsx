@@ -4,6 +4,7 @@ import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Signup = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -11,19 +12,30 @@ const Signup = () => {
 
   
   const onSubmit = data => {
+    console.log(data);
     createUser(data.email, data.password)
     .then(result => {
       const loggedUser = result.user;
       console.log(loggedUser);
 
-      // updateUserProfile(data.name, data.photoURL)
-      // .then((result) => {
-      //   const url = result.user;
-      //   console.log(url);
+      updateUserProfile(data.name, data.photoURL)
+      .then(() => {
+        const saveUser = {name: data.name, email: data.email}
+        fetch('http://localhost:5000/users', {
+          method: "POST", 
+          headers: {
+            'content-type' : 'application/json'
+          },
+          body: JSON.stringify(saveUser)
+        })
+        .then(res => res.json())
 
-        // const saveUser = {name: data.name, }
-      // })
-      // .catch(err => console.log(err))
+        .then(data => {
+          console.log(data);
+        })
+      })
+
+
     })
     .catch(err => console.log(err))
     // console.log(data)
