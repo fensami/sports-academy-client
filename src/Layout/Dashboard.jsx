@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaBook, FaCalendarAlt, FaHome, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
 import useAdmin from '../Hooks/useAdmin';
+// import useAdmin from '../Hooks/useAdmin';
 
 
 const Dashboard = () => {
@@ -17,9 +18,9 @@ const Dashboard = () => {
     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
     <div className="drawer-content flex flex-col items-center justify-center">
       {/* Page content here */}
+
+
       <Outlet></Outlet>
-
-
       <label htmlFor="my-drawer-2" className="btn drawer-button lg:hidden">Open drawer</label>
 
     
