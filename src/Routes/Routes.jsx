@@ -8,6 +8,7 @@ import Instructor from "../Pages/InstructorPage/Instructor";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import ALLusers from "../Dashboard/ALLusers/ALLusers";
+import AddClasses from "../Dashboard/AddClasses/AddClasses";
 // import Dashboard from "../Dashboard/Dashboard";
 
 
@@ -29,7 +30,8 @@ export const router = createBrowserRouter([
   {
     path: 'dashboard', element: <Dashboard></Dashboard>,
     children: [
-      {path: 'allusers', element: <ALLusers></ALLusers> }
+      {path: 'allusers', element: <ALLusers></ALLusers> },
+      {path: 'addclasses', element: <AddClasses></AddClasses> }
     ]
   }
 ])
