@@ -1,13 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-// import useAuth from "./useAuth";
-// import useAxiosSecure from "./useAxiosSecure";
-// import { useAuth } from "./useAuth";
 import useAxiousSecure from "./useAxiousSecure";
 import { useAuth } from "./useAuth";
 
 const useAdmin = () => {
   const {user, loading} = useAuth();
-    // const {user, loading} = useAuth();
     const [axiosSecure] = useAxiousSecure();
     // use axios secure with react query
     const {data: isAdmin, isLoading: isAdminLoading} = useQuery({
