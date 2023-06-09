@@ -1,17 +1,19 @@
 import React from 'react';
 import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { useAuth } from '../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const Signup = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const {createUser, updateUserProfile} = useAuth()
 
-  
+  const navigate = useNavigate();
   const onSubmit = data => {
     console.log(data);
+   
     createUser(data.email, data.password)
     .then(result => {
       const loggedUser = result.user;
@@ -28,13 +30,22 @@ const Signup = () => {
           body: JSON.stringify(saveUser)
         })
         .then(res => res.json())
-
         .then(data => {
+          if(data.insertedId){
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'User created successfully.',
+              showConfirmButton: false,
+              timer: 1500
+          });
+          navigate('/')
+          }
           console.log(data);
+          // navigate(from , {replace: true})
         })
       })
-
-
+     
     })
     .catch(err => console.log(err))
      

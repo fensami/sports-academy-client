@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import logo from '../../assets/image/logo.png'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import UserImage from './userImage';
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -15,11 +16,11 @@ const Navbar = () => {
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/instructors'>Instructors</Link></li>
       <li><Link>Classes</Link></li>
-      <li><Link>DashBoard</Link></li>
+      <li><Link to='dashboard'>DashBoard</Link></li>
       {/* Home, Instructors, Classes */}
   </>
   return (
-      <div className="navbar fixed z-10 max-w-screen-xl bg-[#38ada9]">
+      <div className="navbar rounded-t-xl fixed z-10 max-w-screen-xl bg-[#38ada9]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -46,11 +47,14 @@ const Navbar = () => {
           <Link onClick={handleLogout} className="btn btn-outline text-white">Logout</Link> </> :
           <>
           <Link to='/login' className="btn btn-outline text-white hover:bg-green-500">Login</Link>
+         
 
           {/* <Link to='/login' className="btn">Login</Link> */}
           </>
 
         }
+<UserImage></UserImage>
+         
         
       </div>
     </div>
