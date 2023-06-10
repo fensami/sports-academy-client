@@ -100,18 +100,6 @@ const ALLusers = () => {
               </tr>)
             }
 
-            {/* {
-          users.map((user,index) => <tr
-          key={user._id}
-          >
-          <th>{index + 1}</th>
-          <td>{user.email}</td>
-          <td>kaku</td>
-          <td>instructor</td>
-          <td>delete</td>
-        </tr> )
-        } */}
-
 
 
           </tbody>
