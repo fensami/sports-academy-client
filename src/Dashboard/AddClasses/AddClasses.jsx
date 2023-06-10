@@ -1,107 +1,98 @@
 import React from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { useAuth } from '../../Hooks/useAuth';
-// import { useQuery } from '@tanstack/react-query';
-// import { useAuth } from '../../Hooks/useAuth';
-// import { useAuth } from '../../Hooks/useAuth';
-
-// const ManageClasses = () => {
-  // const { user } = useAuth();
-
-  // const { data: classes = [], isLoading } = useQuery(['classes', user?.email], async () => {
-  //   const res = await fetch(`http://localhost:5000/classes?instructorEmail=${user?.email}`);
-  //   return res.json();
-  // });}
-
-  // const handleApprove = (classId) => {
-  //   // Implement the logic to approve the class with the given ID
-  // };
-
-  // const handleDeny = (classId) => {
-  //   // Implement the logic to deny the class with the given ID
-  // };
-
-  // const handleSendFeedback = (classId) => {
-  //   // Implement the logic to send feedback for the class with the given ID
-  // };}
-
 
 const AddClasses = () => {
-  const { user } = useAuth();
-
-  const { data: classes = [], isLoading } = useQuery(['classes', user?.email], async () => {
-    const res = await fetch(`http://localhost:5000/classes?instructorEmail=${user?.email}`);
-    return res.json();
-  });
-
-  const handleApprove = (classId) => {
-    // Implement the logic to approve the class with the given ID
-  };
-
-  const handleDeny = (classId) => {
-    // Implement the logic to deny the class with the given ID
-  };
-
-  const handleSendFeedback = (classId) => {
-    // Implement the logic to send feedback for the class with the given ID
-  };
   return (
-    <div>
-      <h1>Manage Classes</h1>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <table>
-          <thead>
-            <tr>
-              <th>Class Image</th>
-              <th>Class Name</th>
-              <th>Instructor Name</th>
-              <th>Instructor Email</th>
-              <th>Available Seats</th>
-              <th>Price</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {classes.map((classItem) => (
-              <tr key={classItem.id}>
-                <td>
-                  <img src={classItem.image} alt="Class" />
-                </td>
-                <td>{classItem.name}</td>
-                <td>{classItem.instructorName}</td>
-                <td>{classItem.instructorEmail}</td>
-                <td>{classItem.availableSeats}</td>
-                <td>{classItem.price}</td>
-                <td>{classItem.status}</td>
-                <td>
-                  <button
-                    onClick={() => handleApprove(classItem.id)}
-                    disabled={classItem.status !== 'pending'}
-                  >
-                    Approve
-                  </button>
-                  <button
-                    onClick={() => handleDeny(classItem.id)}
-                    disabled={classItem.status !== 'pending'}
-                  >
-                    Deny
-                  </button>
-                  <button
-                    onClick={() => handleSendFeedback(classItem.id)}
-                    disabled={classItem.status !== 'approved'}
-                  >
-                    Send Feedback
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+    <div className='w-full'>
+       <h1 className='my-12 text-5xl font-semibold uppercase text-center '>
+        add class
+      </h1>
+      <form  className="bg-[#26a09c] w-1/2 px-8 py-8 mb-5 mx-auto">
+     
+    <div className="mb-4">
+      <label className="block mb-2 text-gray-700" htmlFor="className">
+        Class name:
+      </label>
+      <input
+        type="text"
+        id="className"
+        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+        // value={className}
+        // onChange={handleClassNameChange}
+        required
+      />
     </div>
+    <div className="mb-4">
+      <label className="block mb-2 text-gray-700" htmlFor="classImage">
+        Class Image:
+      </label>
+      <input
+        type="text"
+        id="classImage"
+        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+        // value={classImage}
+        // onChange={handleClassImageChange}
+        required
+      />
+    </div>
+    <div className="mb-4">
+      <label className="block mb-2 text-gray-700" htmlFor="instructorName">
+        Instructor name:
+      </label>
+      <input
+        type="text"
+        id="instructorName"
+        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+        // value={instructor.displayName}
+        readOnly
+      />
+    </div>
+    <div className="mb-4">
+      <label className="block mb-2 text-gray-700" htmlFor="instructorEmail">
+        Instructor email:
+      </label>
+      <input
+        type="email"
+        id="instructorEmail"
+        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+        // value={instructor.email}
+        readOnly
+      />
+    </div>
+    <div className="mb-4">
+      <label className="block mb-2 text-gray-700" htmlFor="availableSeats">
+        Available seats:
+      </label>
+      <input
+        type="number"
+        id="availableSeats"
+        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+        // value={availableSeats}
+        // onChange={handleAvailableSeatsChange}
+        required
+      />
+    </div>
+    <div className="mb-4">
+      <label className="block mb-2 text-gray-700" htmlFor="price">
+        Price:
+      </label>
+      <input
+        type="number"
+        id="price"
+        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+        // value={price}
+        // onChange={handlePriceChange}
+        required
+      />
+    </div>
+    <button
+      type="submit"
+      className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+    >
+      Add
+    </button>
+  </form>
+    </div>
+    
   );
 };
 

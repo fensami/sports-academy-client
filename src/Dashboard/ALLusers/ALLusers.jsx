@@ -58,7 +58,7 @@ const ALLusers = () => {
   return (
     <>
       <div>
-        <h1>All Users</h1>
+        <h1 className='text-5xl font-semibold text-[#26a09c] uppercase mb-8'>manage All Users</h1>
       </div>
       <div className="overflow-x-auto w-full border">
         <table className="table ">
@@ -94,7 +94,7 @@ const ALLusers = () => {
                   }
 
                 </td>
-                <td>instructor</td>
+                
 
                 <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
               </tr>)

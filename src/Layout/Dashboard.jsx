@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaBook, FaCalendarAlt, FaHome, FaUsers, FaUtensils, FaWallet } from 'react-icons/fa';
+import { ImBooks } from 'react-icons/im';
 import useAdmin from '../Hooks/useAdmin';
 import useInstructor from '../Hooks/useInstructor';
 // import useAdmin from '../Hooks/useAdmin';
@@ -30,19 +31,20 @@ const Dashboard = () => {
     </div> 
     <div className="drawer-side">
       <label htmlFor="my-drawer-2" className="drawer-overlay"></label> 
-      <ul className="menu p-4 w-80 h-full bg-[#26a09c] text-white">
+      <ul className="menu p-4 w-80 h-full bg-[#26a09c] text-white text-xl font-semibold">
         {/* Sidebar content here */}
         {isAdmin ? <>
-                            <li><NavLink to="/dashboard/adminhome"><FaHome></FaHome> Admin Home</NavLink></li>
-                            <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers> All Users</NavLink></li>
-                            <li><NavLink to="/dashboard/addclasses"> Add Classes</NavLink></li>
+                            <li><NavLink><FaHome></FaHome> Admin Home</NavLink></li>
+                            <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers>Manage Users</NavLink></li>
+                            <li><NavLink to="/dashboard/addclasses"><ImBooks></ImBooks>Manage Classes</NavLink></li>
                             
                         </> :
                         isInstructor ? <>
-                         <li><NavLink to="/dashboard"><FaUsers></FaUsers> Instructors items add</NavLink></li>
+                        <li><NavLink><FaHome></FaHome>Instructor Home</NavLink></li>
+                         <li><NavLink to="/dashboard/addclasses"><FaUsers></FaUsers> Add a class</NavLink></li>
                         </> :
                         <>
-                            <li><NavLink to="/dashboard/userhome"><FaHome></FaHome> User Home</NavLink></li>
+                            <li><NavLink to="/dashboard/userhome"><FaHome></FaHome>Students Home</NavLink></li>
                             <li><NavLink to="/"><FaWallet></FaWallet> Payment History</NavLink></li>
                             {/* <li>
                                 <NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart
