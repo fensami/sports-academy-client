@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import useAxiousSecure from '../../Hooks/useAxiousSecure';
+import useAxiousSecure from '../../../Hooks/useAxiousSecure';
 import Swal from 'sweetalert2';
 // import { Helmet } from "react-helmet-async";
-import { FaTrashAlt, FaUserShield } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
+import { RiAdminFill } from "react-icons/ri";
+import { GiTeacher } from "react-icons/gi";
 
 const ALLusers = () => {
   const [axiosSecure] = useAxiousSecure();
@@ -58,12 +60,12 @@ const ALLusers = () => {
   return (
     <>
       <div>
-        <h1 className='text-5xl font-semibold text-[#26a09c] uppercase mb-8'>manage All Users</h1>
+        <h1 className='text-5xl font-bold text-[#26a09c] uppercase mb-8'>manage All Users</h1>
       </div>
       <div className="overflow-x-auto w-full border">
         <table className="table ">
           {/* head */}
-          <thead className='bg-[#26a09c] text-white'>
+          <thead className='bg-[#26a09c] text-white text-lg font-bold'>
             <tr>
               <th>#</th>
               <th className='font-bold'>Name</th>
@@ -81,22 +83,22 @@ const ALLusers = () => {
                 <th>{index + 1}</th>
                 <td>{user.email}</td>
                 <td>
-                  {user.role === 'admin' ? 'admin' :
-                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white"  ><FaUserShield></FaUserShield></button>
+                  {user.role === 'admin' ? <RiAdminFill className='ml-8' style={{fontSize: '1.5rem'}}/>  :
+                    <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost ml-8 bg-[#26a09c]  text-white"  ><RiAdminFill style={{fontSize: '1.5rem'}}></RiAdminFill></button>
 
                   }
 
                 </td>
                 <td>
-                  {user.role === 'instructor' ? 'instructor' :
-                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600  text-white"
-                    ><FaUserShield></FaUserShield></button>
+                  {user.role === 'instructor' ? <GiTeacher className='ml-8' style={{fontSize: '1.5rem'}}></GiTeacher> :
+                    <button onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-[#26a09c]  ml-8 text-white"
+                    ><GiTeacher style={{fontSize: '1.5rem'}}></GiTeacher></button>
                   }
 
                 </td>
                 
 
-                <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
+                <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-[#ee3831] text-white"><FaTrashAlt></FaTrashAlt></button></td>
               </tr>)
             }
 

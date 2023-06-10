@@ -1,24 +1,28 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useAuth } from '../../../Hooks/useAuth';
 
 const AddClasses = () => {
-  const { register, handleSubmit, formState: { errors } , reset} = useForm();
+  const { user } = useAuth();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
   const onSubmit = (data) => {
+    const classData = { ...data, status: 'pending' };
     fetch('http://localhost:5000/classes', {
       method: 'POST',
       headers: {
-        'content-type' : 'application/json'
+        'content-type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(classData)
     })
-    .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      reset()
-    })
-    .catch(err => {console.log(err);})
-  
-    // console.log(data);
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        reset();
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   return (
@@ -57,25 +61,23 @@ const AddClasses = () => {
         <div className="mb-4">
           <label className="block mb-2 text-white font-semibold">Instructor name:</label>
           <input
+          {...register('instructorName', { required: true })}
             type="text"
-            {...register('instructorName', { required: true })}
+            value={user.displayName}
+            readOnly
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
-          {errors.instructorName && (
-            <p className="text-red-500">This field is required</p>
-          )}
         </div>
 
         <div className="mb-4">
           <label className="block mb-2 text-white font-semibold">Instructor email:</label>
           <input
+          {...register('instructorEmail', { required: true })}
             type="email"
-            {...register('instructorEmail', { required: true })}
+            value={user.email}
+            readOnly
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
-          {errors.instructorEmail && (
-            <p className="text-red-500">This field is required</p>
-          )}
         </div>
 
         <div className="mb-4">

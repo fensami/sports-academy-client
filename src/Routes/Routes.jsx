@@ -7,8 +7,11 @@ import Error from "../Pages/ErrorPage/Error";
 import Instructor from "../Pages/InstructorPage/Instructor";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
-import ALLusers from "../Dashboard/ALLusers/ALLusers";
-import AddClasses from "../Dashboard/AddClasses/AddClasses";
+import ALLusers from "../Dashboard/AdminHome/ALLusers/ALLusers";
+import AddClasses from "../Dashboard/InstructorHome/AddClasses/AddClasses";
+import AdminHome from "../Dashboard/AdminHome/AdminHome/AdminHome";
+import AllClasses from "../Pages/HomePage/PopularClassSection/AllClasses/AllClasses";
+import AllManageClasses from "../Dashboard/AdminHome/AllManageClasses/AllManageClasses";
 // import Dashboard from "../Dashboard/Dashboard";
 
 
@@ -19,8 +22,9 @@ export const router = createBrowserRouter([
     children:[
 
       {path: '/',element: <Home></Home>},
-      // {path: 'instructors',element: <Instructor></Instructor>},
-      {path: 'instructors',element: <PrivateRoute><Instructor></Instructor></PrivateRoute>},
+      {path: 'instructors',element: <Instructor></Instructor>},
+      {path: 'allclasses',element: <AllClasses></AllClasses>},
+
       
     ]
   },
@@ -28,10 +32,13 @@ export const router = createBrowserRouter([
   {path: 'signup', element: <Signup></Signup>},
   {path: '*', element: <Error></Error>},
   {
-    path: 'dashboard', element: <Dashboard></Dashboard>,
+    path: 'dashboard', element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
+      
+      {path: 'addclasses', element: <AddClasses></AddClasses> },
+      {path: 'adminhome', element: <AdminHome></AdminHome> },
       {path: 'allusers', element: <ALLusers></ALLusers> },
-      {path: 'addclasses', element: <AddClasses></AddClasses> }
+      {path: 'allManageClasses', element: <AllManageClasses></AllManageClasses> },
     ]
   }
 ])
