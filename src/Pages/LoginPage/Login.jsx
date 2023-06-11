@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import image from '../../assets/image/loginImage.png'

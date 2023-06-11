@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAuth } from '../../Hooks/useAuth';
 import { CgProfile } from 'react-icons/cg';
-// import img from '../../assets/image/avatar.png'
+import { useAuth } from '../../../Hooks/useAuth';
+
 
 const UserImage = () => {
   const {user} = useAuth()

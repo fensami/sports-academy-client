@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 import { useAuth } from '../../Hooks/useAuth';
-import SocialLogin from '../../Shared/SocialLogin/SocialLogin';
+import SocialLogin from '../Shared/SocialLogin/SocialLogin';
 
 const Signup = () => {
   const { register, handleSubmit, formState: { errors }, reset, watch } = useForm();

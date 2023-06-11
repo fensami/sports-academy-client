@@ -1,5 +1,5 @@
 import React from 'react';
-import imgLogo from '../../assets/image/logo.png'
+import imgLogo from '../../../assets/image/logo.png'
 import { AiFillYoutube } from 'react-icons/ai';
 import { BsTwitter,BsFacebook } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
