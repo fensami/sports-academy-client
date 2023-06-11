@@ -26,7 +26,7 @@ const ALLusers = () => {
           Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: `${user.name} is an Admin Now!`,
+            // title: `${user.name} is an Admin Now!`,
             showConfirmButton: false,
             timer: 1500
           })
@@ -83,8 +83,12 @@ const ALLusers = () => {
                 <th>{index + 1}</th>
                 <td>{user.email}</td>
                 <td>
-                  {user.role === 'admin' ? <RiAdminFill className='ml-8' style={{fontSize: '1.5rem'}}/>  :
+                  {/* {user.role === 'admin' ? <RiAdminFill className='ml-8' style={{fontSize: '1.5rem'}}/>  :
                     <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost ml-8 bg-[#26a09c]  text-white"  ><RiAdminFill style={{fontSize: '1.5rem'}}></RiAdminFill></button>
+
+                  } */}
+                  {user.role === 'admin' ? 'admin' :
+                    <button onClick={() => handleMakeAdmin(user)}> insta </button>
 
                   }
 

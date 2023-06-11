@@ -22,9 +22,10 @@ const SocialLogin = () => {
         body: JSON.stringify(saveUser)
       })
       .then(res => res.json())
-      .then(() => {
+      .then((data) => {
+        console.log(data);
         navigate(from , {replace: true})
-        // console.log(data);
+        
       })
 
     })
