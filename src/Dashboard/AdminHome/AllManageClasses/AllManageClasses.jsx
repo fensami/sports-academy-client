@@ -20,7 +20,7 @@ const AllManageClasses = () => {
       status: e.target.value
   }
   console.log(classe._id);
-    fetch(`http://localhost:5000/classes/${classe._id}`, {
+    fetch(`https://sports-academy-server-kappa.vercel.app/classes/${classe._id}`, {
       method: 'PATCH',
       headers: {
         'content-type' : 'application/json'

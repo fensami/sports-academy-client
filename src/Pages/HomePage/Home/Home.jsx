@@ -3,6 +3,7 @@ import Slider from '../Slider/Slider';
 import PopularInstructors from '../PopularInstructorsSection/PopularInstructors';
 import PopularClassSection from '../PopularClassSection/PopularClassSection';
 import { Helmet } from 'react-helmet';
+import ChampionsCorner from '../ChampionsCorner/ChampionsCorner';
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Slider></Slider>
       <PopularClassSection></PopularClassSection>
       <PopularInstructors></PopularInstructors>
+      <ChampionsCorner></ChampionsCorner>
     </div>
   );
 };

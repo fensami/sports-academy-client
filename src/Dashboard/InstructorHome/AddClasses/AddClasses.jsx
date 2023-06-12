@@ -8,7 +8,7 @@ const AddClasses = () => {
 
   const onSubmit = (data) => {
     const classData = { ...data, status: 'pending' };
-    fetch('http://localhost:5000/classes', {
+    fetch('https://sports-academy-server-kappa.vercel.app/classes', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

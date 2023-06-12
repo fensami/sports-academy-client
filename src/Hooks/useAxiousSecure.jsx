@@ -5,10 +5,10 @@ import { useAuth } from './useAuth';
 // import useAuth from './useAuth';
 
 // const axiosSecure = axios.create({
-//   baseURL: 'http://localhost:5000', 
+//   baseURL: 'https://sports-academy-server-kappa.vercel.app', 
 // });
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000', 
+  baseURL: 'https://sports-academy-server-kappa.vercel.app', 
 });
 
 const useAxiousSecure = () => {
