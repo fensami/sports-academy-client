@@ -25,7 +25,6 @@ const SocialLogin = () => {
       })
       .then(res => res.json())
       .then(() => {
-        // console.log(data);
         navigate(from , {replace: true})
         
       })

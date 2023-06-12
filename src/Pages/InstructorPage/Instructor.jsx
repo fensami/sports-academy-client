@@ -1,69 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Instructor = () => {
-  // Sample instructor data
-  const instructors = [
-    {
-      id: 1,
-      name: 'John Doe',
-      email: 'johndoe@example.com',
-      image: 'instructor1.jpg',
-    },
-    {
-      id: 2,
-      name: 'Jane Smith',
-      email: 'janesmith@example.com',
-      image: 'instructor2.jpg',
-    },
-    // Add more instructors here...
-  ];
+
+  const [instructors, setInstructors] = useState([]);
+  useEffect(() => {
+    fetch('instructors.json')
+      .then(res => res.json())
+      .then(data => setInstructors(data))
+  }, [])
 
   return (
-    <div>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <h1>Instructors</h1>
-      <div className="instructor-list">
-        {instructors.map((instructor) => (
-          <div key={instructor.id} className="instructor-item">
-            <img src={instructor.image} alt={instructor.name} />
-            <h2>{instructor.name}</h2>
-            <p>{instructor.email}</p>
-          </div>
-        ))}
+    <div className='pt-32'>
+      <p className='text-5xl text-center font-bold  text-[#38ada9]  uppercase'>Instructors</p>
+
+    {
+      instructors.map((instructor, index) =>   <article
+      key={index}
+      className="card lg:card-side bg-base-300  md:mx-48 shadow-xl mt-16">
+      <img className='md:w-1/2' src={instructor.image} alt="Album" />
+      <div className="card-body text-white bg-[#38ada9]">
+        <h2 className="text-3xl font-semibold">{instructor.name}</h2>
+        <h2 className="text-xl font-semibold">classes :{instructor.class}</h2>
+        <p className='text-lg font-semibold'>Student: {instructor.students}</p>
       </div>
+    </article>)
+    }
     </div>
   );
 };

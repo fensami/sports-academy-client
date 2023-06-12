@@ -28,12 +28,6 @@ const ChampionsCorner = () => {
   }
 </div>
 
-
-     {/* {
-      champions.map((champion, index) =>  )
-     }  */}
-
-
     </div>
   );
 };

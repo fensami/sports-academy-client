@@ -19,8 +19,7 @@ const MySelectedClasses = () => {
     },
   })
 
-  const total = myaddedclasses.reduce((sum, item) => item.price + sum, 0);
-
+  
 //TODO:
 //id is not define
   // const handleDelete = (item) => {

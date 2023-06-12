@@ -1,20 +1,19 @@
 import React from 'react';
-// import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import useAxiousSecure from '../../../Hooks/useAxiousSecure';
-// import axiosSecure from 'axios';
+
 
 const AllManageClasses = () => {
   const [axiosSecure] = useAxiousSecure();
   const { data: classes = [], refetch } = useQuery(['classes'], async () => {
     const res = await axiosSecure.get('/classes');
-    console.log(res);
+    console.log(res.data);
     return res.data;
   });
 
 
   const handleUpdateStatus = (e, classe) => {
-    // e.preventDefault()
+   
     console.log(e.target.value);
     const updateData = {
       status: e.target.value
@@ -50,7 +49,7 @@ const AllManageClasses = () => {
             <div className="card-body">
               <h2 className="card-title">
                 {classe.className}
-                {/* <div className="badge badge-secondary">NEW</div> */}
+                
               </h2>
               <p className='font-semibold'>seats: {classe.seats}</p>
               <p className='font-semibold'>Instructor Name: {classe.instructorName}</p>
@@ -63,14 +62,6 @@ const AllManageClasses = () => {
                   <option value="approved">Approved</option>
                   <option value="denied">Denied</option>
                 </select>
-
-                {/* {
-                  classes.status === 'status' ? 'approved' : <button onChange={()=>handleUpdateStatus(classes)}> pending</button>
-                } */}
-                {/* <form onSubmit={()=>handleUpdateStatus(classes)}>
-                  <input type="text" name='status' placeholder='status' /> 
-                  <input type="submit" value="update" />
-                </form> */}
               </div>
             </div>
           </div>

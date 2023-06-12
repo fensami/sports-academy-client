@@ -26,6 +26,9 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   }
+
+
+
   //logOut
   const logOut = () => {
     setLoading(true);
@@ -38,6 +41,7 @@ const AuthProvider = ({ children }) => {
     setLoading(true)
     return signInWithPopup(auth, googleProvider)
   }
+
   //update user profile image url 
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
@@ -56,7 +60,6 @@ const AuthProvider = ({ children }) => {
       if(currentUser){
         axios.post('https://sports-academy-server-kappa.vercel.app/jwt', {email: currentUser.email})
         .then(data =>{
-            // console.log(data.data.token)
             localStorage.setItem('access-token', data.data.token)
             setLoading(false);
         })
@@ -64,7 +67,6 @@ const AuthProvider = ({ children }) => {
     else{
         localStorage.removeItem('access-token')
     }
-      // setLoading(false)
     })
     return () => {
       return unsubscribe()

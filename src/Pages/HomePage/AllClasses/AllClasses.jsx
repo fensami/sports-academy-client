@@ -17,14 +17,12 @@ const AllClasses = () => {
   const [axiosSecure] = useAxiousSecure();
   const { data: classes = [], refetch } = useQuery(['classes'], async () => {
     const res = await axiosSecure.get('/classes');
-    // console.log(res.data);
     return res.data;
   });
 
   const approvedClasses = classes.filter(classe => classe.status === 'approved');
 
   const addMyClasses = classes => {
-    console.log(classes);
     if(user && user.email){
         const addClass = { 
           itemId: classes._id,
@@ -33,7 +31,6 @@ const AllClasses = () => {
            instructorName: classes.instructorName,
            instructorEmail: classes.instructorEmail,
            price: classes.price ,
-           
             email: user.email}
         fetch(`https://sports-academy-server-kappa.vercel.app/myaddedclasses`, {
             method: 'POST',
@@ -45,7 +42,6 @@ const AllClasses = () => {
         .then(res => res.json())
         .then(data => {
           console.log(data);
-
         })
         const updateData = {
                 seats: parseInt(classes.seats)-1
@@ -59,10 +55,8 @@ const AllClasses = () => {
       })
         .then(res => res.json())
         .then(data => {
-          // refetch()
           console.log(data)
           if (data.modifiedCount) {
-            // refetch();
             Swal.fire({
               position: 'top-center',
               icon: 'success',
@@ -77,7 +71,7 @@ const AllClasses = () => {
     }
     else{
         Swal.fire({
-            title: 'Please login to order the food',
+            title: 'Please login and select class',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',

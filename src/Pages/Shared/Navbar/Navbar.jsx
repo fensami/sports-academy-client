@@ -1,14 +1,12 @@
-import React, { useContext } from 'react';
-// import { Link } from 'react-router-dom';
+import React from 'react';
 import logo from '../../../assets/image/logo.png'
 import { Link } from 'react-router-dom';
-// import { AuthContext } from '../../Providers/AuthProvider';
 import UserImage from './UserImage';
 import { useAuth } from '../../../Hooks/useAuth';
 
 const Navbar = () => {
   const {user, logOut} = useAuth()
-  // const { user, logOut } = useContext(AuthContext);
+  
   const handleLogout = () => {
     logOut()
     .then(() => {})
@@ -21,7 +19,7 @@ const Navbar = () => {
       {
         user && <li><Link to='dashboard'>DashBoard</Link></li>
       }
-      {/* Home, Instructors, Classes */}
+      
   </>
   return (
       <div className="navbar rounded-t-xl bg-opacity-70 fixed z-10 max-w-screen-xl bg-[#38ada9]">
@@ -51,12 +49,10 @@ const Navbar = () => {
           <Link onClick={handleLogout} className="btn btn-outline text-white">Logout</Link> </> :
           <>
           <Link to='/login' className="btn btn-outline text-white hover:bg-green-500">Login</Link>
-         
-
-          {/* <Link to='/login' className="btn">Login</Link> */}
-          </>
+                   </>
 
         }
+        {/* profile image */}
 <UserImage></UserImage>
          
         

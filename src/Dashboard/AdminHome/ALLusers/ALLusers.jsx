@@ -5,22 +5,17 @@ import Swal from 'sweetalert2';
 import { FaTrashAlt } from "react-icons/fa";
 import { RiAdminFill } from "react-icons/ri";
 import { GiTeacher } from "react-icons/gi";
-import { useAuth } from '../../../Hooks/useAuth';
 
 const ALLusers = () => {
-  // Retrieve the authenticated user using the useAuth hook
-  // const { user } = useAuth();
-
-  // Call the useAxiousSecure hook to get the axiosSecure instance
   const [axiosSecure] = useAxiousSecure();
 
-  // Fetch the users data using useQuery hook
+
   const { data: users = [], refetch } = useQuery(['users'], async () => {
     const res = await axiosSecure.get('/users');
     return res.data;
   });
 
-  // Function to make a user an admin
+  //make a user an admin
   const handleMakeAdmin = user => {
     fetch(`https://sports-academy-server-kappa.vercel.app/users/admin/${user._id}`, {
       method: 'PATCH'
@@ -31,8 +26,9 @@ const ALLusers = () => {
         if (data.modifiedCount) {
           refetch();
           Swal.fire({
-            position: 'top-end',
+            position: 'top-center',
             icon: 'success',
+            title: 'wow your are now admin',
             showConfirmButton: false,
             timer: 1500
           });
@@ -40,7 +36,7 @@ const ALLusers = () => {
       });
   };
 
-  // Function to make a user an instructor
+  //make a user an instructor
   const handleMakeInstructor = user => {
     fetch(`https://sports-academy-server-kappa.vercel.app/users/instructor/${user._id}`, {
       method: 'PATCH'
@@ -51,9 +47,9 @@ const ALLusers = () => {
         if (data.modifiedCount) {
           refetch();
           Swal.fire({
-            position: 'top-end',
+            position: 'top-center',
             icon: 'success',
-            title: `${user.name} is an instructor Now!`,
+            title: `your are now instructor`,
             showConfirmButton: false,
             timer: 1500
           });
@@ -63,33 +59,11 @@ const ALLusers = () => {
 
 
 
+  //TODO:
+  // const handleDelete = () => {
+  //
+  // }
 
-  const handleDelete = (item) => {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-
-        axiosSecure.delete(`/myclasscart/${item._id}`)
-        .then(res => {
-          console.log("deleted res",res.data);
-          refetch();
-          Swal.fire(
-          'Deleted!',
-          'Class has been deleted.',
-          'success'
-        )
-        })
-      }
-    })
-  }
-  
 
   return (
     <>
@@ -109,7 +83,6 @@ const ALLusers = () => {
           </thead>
           <tbody>
             {
-              // Render a table row for each user
               users.map((user, index) => (
                 <tr key={index}>
                   <th>{index + 1}</th>
@@ -143,10 +116,7 @@ const ALLusers = () => {
                     }
                   </td>
                   <td>
-                    <button
-                      onClick={() => handleDelete(item)}
-                      className="btn btn-ghost bg-[#ee3831] text-white"
-                    >
+                    <button className="btn btn-ghost bg-[#ee3831] text-white">
                       <FaTrashAlt />
                     </button>
                   </td>

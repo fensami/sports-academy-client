@@ -21,6 +21,7 @@ const AddClasses = () => {
         console.log(data);
         reset();
         if(data.insertedId){
+          
           Swal.fire({
             position: 'top-center',
             icon: 'success',
@@ -52,7 +53,7 @@ const AddClasses = () => {
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
           {errors.className && (
-            <p className="text-red-500">This field is required</p>
+            <p className="text-red-500">Class Name is required</p>
           )}
         </div>
 
@@ -82,7 +83,7 @@ const AddClasses = () => {
         <div className="mb-4">
           <label className="block mb-2 text-white font-semibold">Instructor email:</label>
           <input
-          {...register('email', { required: true })}
+          {...register('instructorEmail', { required: true })}
             type="email"
             value={user.email}
             readOnly
@@ -98,7 +99,7 @@ const AddClasses = () => {
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
           {errors.seats && (
-            <p className="text-red-500">This field is required</p>
+            <p className="text-red-500">Seats required</p>
           )}
         </div>
 
@@ -110,7 +111,7 @@ const AddClasses = () => {
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
           {errors.price && (
-            <p className="text-red-500">This field is required</p>
+            <p className="text-red-500">Price is required</p>
           )}
         </div>
 

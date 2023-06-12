@@ -23,7 +23,6 @@ const MyClass = () => {
           
                 <div className="overflow-x-auto border-2">
                 <table className="table rounded">
-                  {/* head */}
                   <thead className='bg-[#26a09c] text-black'>
                     <tr className="text-white">
                       <th>Class Name </th>
@@ -36,7 +35,6 @@ const MyClass = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {/* row 1 */}
                     {
                       classesStatus.map((classes,index) =><tr key={index}>
                       <th className="uppercase">

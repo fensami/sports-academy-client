@@ -10,12 +10,10 @@ const Login = () => {
   const navigate = useNavigate()
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
-  
-  
   const { register, handleSubmit } = useForm();
   const {login} = useAuth()
+
   const onSubmit = data => {
-    // console.log(data);
     login(data.email, data.password)
     .then(result => {
       const loggedUser = result.user;
@@ -60,7 +58,9 @@ const Login = () => {
         </div>
       </div>
       
+      {/* social login */}
       <SocialLogin></SocialLogin>
+
       <p className='pb-5 mx-auto'>Have no account <Link className='text-orange-400' to='/signup'>signup</Link></p>
       
     

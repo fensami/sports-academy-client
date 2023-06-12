@@ -40,14 +40,15 @@ export const router = createBrowserRouter([
     path: 'dashboard', element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       
-      {path: 'addclasses', element: <InstructorRoute><AddClasses></AddClasses> </InstructorRoute>},
+      {path: 'addclasses', element: <AddClasses></AddClasses>},
       {path: 'myclasses', element: <MyClasses></MyClasses>},
 
 
 
       {path: 'adminhome', element: <AdminRoute><AdminHome></AdminHome></AdminRoute> },
-      {path: 'allusers', element:<AdminRoute> <ALLusers></ALLusers> </AdminRoute>},
-      {path: 'allManageClasses', element: <AdminRoute><AllManageClasses></AllManageClasses></AdminRoute> },
+      {path: 'allusers', element:<AdminRoute><ALLusers></ALLusers> </AdminRoute>},
+      {path: 'allManageClasses', element: <AllManageClasses></AllManageClasses> },
+
 
       {path: 'mySelectedClasses', element: <MySelectedClasses></MySelectedClasses>},
       {path: 'studentHome', element: <StudentHome></StudentHome> },
