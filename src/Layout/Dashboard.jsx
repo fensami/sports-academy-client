@@ -17,8 +17,7 @@ const Dashboard = () => {
     <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
     <div className="drawer-content flex flex-col items-center justify-center">
       {/* Page content here */}
-
-
+      
       <Outlet></Outlet>
       <label htmlFor="my-drawer-2" className="btn drawer-button lg:hidden">Open drawer</label>
 
@@ -39,24 +38,19 @@ const Dashboard = () => {
                         isInstructor ? <>
                         <li><NavLink><FaHome></FaHome>Instructor Home</NavLink></li>
                          <li><NavLink to="/dashboard/addclasses"><FaUsers></FaUsers> Add a class</NavLink></li>
+                         <li><NavLink to="/dashboard/myclasses"><FaUsers></FaUsers>My Classes</NavLink></li>
                         </> :
                         <>
                             <li><NavLink to="/dashboard/studentHome"><FaHome></FaHome>Students Home</NavLink></li>
                             <li><NavLink to="/dashboard/mySelectedClasses"><FaHome></FaHome>My Selected Classes</NavLink></li>
                             <li><NavLink to="/"><FaWallet></FaWallet> My Enrolled Classes</NavLink></li>
-                            {/* <li>
-                                <NavLink to="/dashboard/mycart"><FaShoppingCart></FaShoppingCart> My Cart
-                                    <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
-                                </NavLink>
-
-                            </li> */}
                         </>
                     }
 
 <div className="divider"></div>
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
                     <li><NavLink to="/instructors">Instructors</NavLink></li>
-                    <li><NavLink to="/allclasses">Classes</NavLink></li>
+                    <li><NavLink to="/allclassses">Classes</NavLink></li>
       </ul>
     
     </div>

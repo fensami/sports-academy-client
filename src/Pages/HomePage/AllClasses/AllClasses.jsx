@@ -4,11 +4,15 @@ import { useQuery } from '@tanstack/react-query';
 import { useAuth } from '../../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useAdmin from '../../../Hooks/useAdmin';
+import useInstructor from '../../../Hooks/useInstructor';
 
 const AllClasses = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const [isAdmin] = useAdmin()
+  const [isInstructor] = useInstructor()
 
   const [axiosSecure] = useAxiousSecure();
   const { data: classes = [], refetch } = useQuery(['classes'], async () => {
@@ -30,7 +34,7 @@ const AllClasses = () => {
            instructorEmail: classes.instructorEmail,
            price: classes.price ,
            
-            user: user.email}
+            email: user.email}
         fetch(`https://sports-academy-server-kappa.vercel.app/myaddedclasses`, {
             method: 'POST',
             headers: {
@@ -41,6 +45,7 @@ const AllClasses = () => {
         .then(res => res.json())
         .then(data => {
           console.log(data);
+
         })
         const updateData = {
                 seats: parseInt(classes.seats)-1
@@ -59,7 +64,7 @@ const AllClasses = () => {
           if (data.modifiedCount) {
             // refetch();
             Swal.fire({
-              position: 'top-end',
+              position: 'top-center',
               icon: 'success',
               title: `added class successfully`,
               showConfirmButton: false,
@@ -108,7 +113,7 @@ const AllClasses = () => {
             <p className='text-lg font-bold'>${approvedClass.price}</p>
             
             <div className="card-actions">
-              <button disabled={(parseInt(approvedClass.seats) < 1) ? true : false} onClick={() => addMyClasses(approvedClass)} className="btn font-bold text-white bg-[#38ada9]">
+              <button disabled={isAdmin || isInstructor ||(parseInt(approvedClass.seats) < 1) ? true : false} onClick={() => addMyClasses(approvedClass)} className="btn font-bold text-white bg-[#38ada9]">
                 Add Classes
               </button>
             </div>

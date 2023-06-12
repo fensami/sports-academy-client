@@ -15,6 +15,9 @@ import Signup from "../Pages/SignupPage/Signup";
 import StudentHome from "../Dashboard/StudentsHome/StrudentHome/StudentHome";
 import MySelectedClasses from "../Dashboard/StudentsHome/MySelectedClasses/MySelectedClasses";
 import AllClasses from "../Pages/HomePage/AllClasses/AllClasses";
+import AdminRoute from "./AdminRoute";
+import MyClasses from "../Dashboard/InstructorHome/MyClasses/MyClasses";
+import InstructorRoute from "./InstructorRoute";
 
 
 export const router = createBrowserRouter([
@@ -37,12 +40,16 @@ export const router = createBrowserRouter([
     path: 'dashboard', element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       
-      {path: 'addclasses', element: <AddClasses></AddClasses> },
-      {path: 'adminhome', element: <AdminHome></AdminHome> },
-      {path: 'allusers', element: <ALLusers></ALLusers> },
-      {path: 'allManageClasses', element: <AllManageClasses></AllManageClasses> },
+      {path: 'addclasses', element: <InstructorRoute><AddClasses></AddClasses> </InstructorRoute>},
+      {path: 'myclasses', element: <MyClasses></MyClasses>},
 
-      {path: 'mySelectedClasses', element: <MySelectedClasses></MySelectedClasses> },
+
+
+      {path: 'adminhome', element: <AdminRoute><AdminHome></AdminHome></AdminRoute> },
+      {path: 'allusers', element:<AdminRoute> <ALLusers></ALLusers> </AdminRoute>},
+      {path: 'allManageClasses', element: <AdminRoute><AllManageClasses></AllManageClasses></AdminRoute> },
+
+      {path: 'mySelectedClasses', element: <MySelectedClasses></MySelectedClasses>},
       {path: 'studentHome', element: <StudentHome></StudentHome> },
     ]
   }

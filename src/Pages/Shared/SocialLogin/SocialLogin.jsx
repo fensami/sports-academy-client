@@ -8,6 +8,8 @@ const SocialLogin = () => {
   const navigate = useNavigate()
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
+
+
   const handleGoogleSignIn = () => {
     googleSignIn()
     .then(result => {
@@ -22,8 +24,8 @@ const SocialLogin = () => {
         body: JSON.stringify(saveUser)
       })
       .then(res => res.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
+        // console.log(data);
         navigate(from , {replace: true})
         
       })

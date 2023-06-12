@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useAuth } from '../../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 const AddClasses = () => {
   const { user } = useAuth();
@@ -19,6 +20,15 @@ const AddClasses = () => {
       .then(data => {
         console.log(data);
         reset();
+        if(data.insertedId){
+          Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Class added Successfully',
+            showConfirmButton: false,
+            timer: 1500
+          })
+        }
       })
       .catch(err => {
         console.log(err);
@@ -54,7 +64,7 @@ const AddClasses = () => {
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           />
           {errors.classImage && (
-            <p className="text-red-500">This field is required</p>
+            <p className="text-red-500">image is required</p>
           )}
         </div>
 
@@ -72,7 +82,7 @@ const AddClasses = () => {
         <div className="mb-4">
           <label className="block mb-2 text-white font-semibold">Instructor email:</label>
           <input
-          {...register('instructorEmail', { required: true })}
+          {...register('email', { required: true })}
             type="email"
             value={user.email}
             readOnly

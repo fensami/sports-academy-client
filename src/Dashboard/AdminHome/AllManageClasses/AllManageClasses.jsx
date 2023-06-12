@@ -29,17 +29,8 @@ const AllManageClasses = () => {
     })
       .then(res => res.json())
       .then(data => {
+        refetch()
         console.log(data)
-        // if (data.modifiedCount) {
-        //   refetch();
-        //   Swal.fire({
-        //     position: 'top-end',
-        //     icon: 'success',
-        //     title: `${user.name} is an apr Now!`,
-        //     showConfirmButton: false,
-        //     timer: 1500
-        //   })
-        // }
       })
   }
 
@@ -54,19 +45,21 @@ const AllManageClasses = () => {
       <div className='grid grid-cols-1 md:grid-cols-2 gap-7'>
 
         {classes.map((classe, index) => (
-          <div key={index} className="card w-96 bg-base-100 shadow-xl">
-            <figure><img className='w-full' src={classe.classImage} alt="Shoes" /></figure>
+          <div key={index} className="card md:w-96 bg-base-100 shadow-xl">
+            <figure><img className='w-full h-60' src={classe.classImage} alt="Shoes" /></figure>
             <div className="card-body">
               <h2 className="card-title">
-                Shoes!
-                <div className="badge badge-secondary">NEW</div>
+                {classe.className}
+                {/* <div className="badge badge-secondary">NEW</div> */}
               </h2>
-              <p>If a dog chews shoes whose shoes does he choose?</p>
+              <p className='font-semibold'>seats: {classe.seats}</p>
+              <p className='font-semibold'>Instructor Name: {classe.instructorName}</p>
+              <p className='font-semibold'>Instructor Email: {classe.instructorEmail}</p>
+              <p className='font-semibold'>Price:$ {classe.price}</p>
               <div className="card-actions justify-end">
-                <div className="badge badge-outline">Fashion</div>
                 <select
                   className="select select-info w-full max-w-xs" onChange={(e)=>handleUpdateStatus(e,classe)}>
-                  <option value="pending">{classe.status}</option>
+                  <option value="pending" className='text-black'>{classe.status}</option>
                   <option value="approved">Approved</option>
                   <option value="denied">Denied</option>
                 </select>
