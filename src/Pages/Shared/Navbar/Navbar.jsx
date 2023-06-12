@@ -36,7 +36,7 @@ const Navbar = () => {
           </ul>
         </div>
        
-        <a className="btn btn-ghost normal-case text-3xl text-white">SportsAcademy</a>
+        <a className="btn btn-ghost normal-case text-lg md:text-3xl text-white">SportsAcademy</a>
       </div>
       <div className="navbar-center hidden lg:flex">
 

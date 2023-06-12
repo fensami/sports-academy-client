@@ -61,15 +61,34 @@ const ALLusers = () => {
       });
   };
 
-  // const handleDelete = user => {
-  //   console.log(user._id);
-  //   fetch(`https://sports-academy-server-kappa.vercel.app/users/${user._id}`)
-  //   .then(res => res.json())
-  //   .then(data => {
-  //     refetch()
-  //     console.log(data);
-  //   })
-  // }
+
+
+
+  const handleDelete = (item) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        axiosSecure.delete(`/myclasscart/${item._id}`)
+        .then(res => {
+          console.log("deleted res",res.data);
+          refetch();
+          Swal.fire(
+          'Deleted!',
+          'Class has been deleted.',
+          'success'
+        )
+        })
+      }
+    })
+  }
   
 
   return (
@@ -125,7 +144,7 @@ const ALLusers = () => {
                   </td>
                   <td>
                     <button
-                      onClick={() => handleDelete(user)}
+                      onClick={() => handleDelete(item)}
                       className="btn btn-ghost bg-[#ee3831] text-white"
                     >
                       <FaTrashAlt />

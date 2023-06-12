@@ -15,10 +15,13 @@ const MyClass = () => {
 
     const classesStatus = classes.filter(classe => classe.instructorEmail === user.email);
 
+
+    
+
     return (
         <div className="w-full">
           
-                <div className="overflow-x-auto">
+                <div className="overflow-x-auto border-2">
                 <table className="table rounded">
                   {/* head */}
                   <thead className='bg-[#26a09c] text-black'>
@@ -47,6 +50,7 @@ const MyClass = () => {
                       </td>
                       <td className="uppercase">{classes.status}</td>
                       <td className="uppercase"><Link className="hover:underline">Update</Link></td>
+
                       <td className="uppercase hover:underline">delete</td>
                     </tr>)
                     }
