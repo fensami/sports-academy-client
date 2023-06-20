@@ -56,6 +56,7 @@ const AllClasses = () => {
         .then(res => res.json())
         .then(data => {
           console.log(data)
+          refetch()
           if (data.modifiedCount) {
             Swal.fire({
               position: 'top-center',

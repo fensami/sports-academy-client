@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 const AddClasses = () => {
   const { user } = useAuth();
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+  const { register, handleSubmit, formState: { errors }, reset, refetch } = useForm();
 
   const onSubmit = (data) => {
     const classData = { ...data, status: 'pending' };
@@ -20,7 +20,9 @@ const AddClasses = () => {
       .then(data => {
         console.log(data);
         reset();
+        // refetch()
         if(data.insertedId){
+          
           
           Swal.fire({
             position: 'top-center',

@@ -29,18 +29,18 @@ const Dashboard = () => {
           <img className='w-48 mx-auto' src={img} alt="" />
 
           {isAdmin ? <>
-            <li><NavLink to='/dashboard/adminhome'><FaHome></FaHome> Admin Home</NavLink></li>
+            {/* <li><NavLink to='/adminhome'><FaHome></FaHome> Admin Home</NavLink></li> */}
             <li><NavLink to="/dashboard/allusers"><FaUsers></FaUsers>Manage Users</NavLink></li>
             <li><NavLink to="/dashboard/allManageClasses"><ImBooks></ImBooks>All Manage Classes</NavLink></li>
 
           </> :
             isInstructor ? <>
-              <li><NavLink><FaHome></FaHome>Instructor Home</NavLink></li>
+              {/* <li><NavLink><FaHome></FaHome>Instructor Home</NavLink></li> */}
               <li><NavLink to="/dashboard/addclasses"><FaUsers></FaUsers> Add a class</NavLink></li>
               <li><NavLink to="/dashboard/myclasses"><FaUsers></FaUsers>My Classes</NavLink></li>
             </> :
               <>
-                <li><NavLink to="/dashboard/studentHome"><FaHome></FaHome>Students Home</NavLink></li>
+                {/* <li><NavLink to="/dashboard/studentHome"><FaHome></FaHome>Students Home</NavLink></li> */}
                 <li><NavLink to="/dashboard/mySelectedClasses"><FaHome></FaHome>My Selected Classes</NavLink></li>
                 <li><NavLink to="/"><FaWallet></FaWallet> My Enrolled Classes</NavLink></li>
               </>

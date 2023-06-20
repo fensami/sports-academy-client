@@ -3,10 +3,13 @@ import logo from '../../../assets/image/logo.png'
 import { Link } from 'react-router-dom';
 import UserImage from './UserImage';
 import { useAuth } from '../../../Hooks/useAuth';
+import useAdmin from '../../../Hooks/useAdmin';
+import useInstructor from '../../../Hooks/useInstructor';
 
 const Navbar = () => {
   const {user, logOut} = useAuth()
-  
+  const [isAdmin] = useAdmin()
+  const [isInstructor] = useInstructor()
   const handleLogout = () => {
     logOut()
     .then(() => {})
@@ -17,7 +20,9 @@ const Navbar = () => {
       <li><Link to='/instructors'>Instructors</Link></li>
       <li><Link to='/allclassses'>Classes</Link></li>
       {
-        user && <li><Link to='dashboard'>DashBoard</Link></li>
+        user && <li><Link to='dashboard/studentHome'>DashBoard</Link></li> ||
+        isAdmin && <li><Link to='dashboard/adminHome'>DashBoard</Link></li> ||
+        isInstructor && <li><Link to='dashboard/instructorHome'>DashBoard</Link></li> 
       }
       
   </>
